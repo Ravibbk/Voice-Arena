@@ -1,0 +1,86 @@
+{
+  "datasetMetadata": {
+    "name": "Voice Arena Private Held-Out Benchmark Corpus (VA-Eval-60)",
+    "version": "1.0-frozen",
+    "totalDurationHours": 60.0,
+    "totalFiles": 123,
+    "totalSpeakers": 318,
+    "doubleAnnotatedPercentage": 20.0,
+    "doubleAnnotatedHours": 12.0,
+    "interAnnotatorAgreementDer": 3.12,
+    "antiContaminationPolicy": "Private offline corpus collected under zero-leakage protocol. Not included in any public training set (CommonVoice, LibriSpeech, VoxCeleb, AMI, DIHARD)."
+  },
+  "domains": [
+    {
+      "id": "meeting",
+      "name": "Meeting",
+      "hours": 20.0,
+      "files": 30,
+      "speakerRange": "3–6 speakers",
+      "overlapPercentage": 16.4,
+      "languages": ["English", "Indian English", "Hinglish"],
+      "devices": ["Laptop Mic", "Far-Field Array", "Conference Polycom"],
+      "acousticEnvironment": "Acoustically variable meeting rooms, glass conference spaces, open team spaces",
+      "difficultyTags": ["High Overlap", "Dynamic Turn-Taking", "Code-Switching"],
+      "description": "Multi-party project planning and technical syncs with frequent interruptions, backchannels ('yeah', 'right'), and unconstrained floor transitions."
+    },
+    {
+      "id": "phone-call",
+      "name": "Phone Call (8kHz)",
+      "hours": 15.0,
+      "files": 45,
+      "speakerRange": "2 speakers",
+      "overlapPercentage": 8.2,
+      "languages": ["English", "Hindi", "Indian English"],
+      "devices": ["PSTN Landline", "Cellular AMR-WB", "VoIP SIP"],
+      "acousticEnvironment": "Telephony bandpass filtered (300Hz–3.4kHz & 8kHz AMR), variable network jitter",
+      "difficultyTags": ["Bandwidth Constraint", "Codec Compression", "Near-Far Volume Imbalance"],
+      "description": "Customer support and financial service interactions with asymmetric audio channels, speaker echo, and line static."
+    },
+    {
+      "id": "podcast",
+      "name": "Podcast / Interview",
+      "hours": 12.0,
+      "files": 16,
+      "speakerRange": "2–4 speakers",
+      "overlapPercentage": 9.5,
+      "languages": ["English", "Hindi"],
+      "devices": ["Dynamic Broadcast Mic (Shure SM7B)", "Studio Condenser"],
+      "acousticEnvironment": "Treated studio with low reverberation, high dynamic range, expressive vocal timber",
+      "difficultyTags": ["Expressive Pitch Variations", "Laughter", "Rapid Crosstalk"],
+      "description": "In-depth conversational interviews, tech roundtables, and debates recorded with professional studio proximity."
+    },
+    {
+      "id": "medical",
+      "name": "Medical",
+      "hours": 8.0,
+      "files": 20,
+      "speakerRange": "2–3 speakers",
+      "overlapPercentage": 7.1,
+      "languages": ["English (Clinical Terminology)", "Indian English"],
+      "devices": ["Laptop Built-in Mic", "Wireless Lavalier"],
+      "acousticEnvironment": "Examining rooms, clinic ambulatory settings with light HVAC and medical equipment hum",
+      "difficultyTags": ["Soft Backchannels", "Clinical Jargon", "HIPAA/Privacy Synthetic Redactions"],
+      "description": "Doctor-patient consultations and nursing handoffs containing delicate backchannels, pauses, and technical pharmaceutical discourse."
+    },
+    {
+      "id": "noisy-room",
+      "name": "Noisy Room",
+      "hours": 5.0,
+      "files": 12,
+      "speakerRange": "3–5 speakers",
+      "overlapPercentage": 14.8,
+      "languages": ["English", "Hinglish"],
+      "devices": ["Far-Field Omnidirectional Mic", "Smartphone Tabletop"],
+      "acousticEnvironment": "Active cafeteria, open coffee shop, collaborative co-working hub (SNR 5–15 dB)",
+      "difficultyTags": ["Low SNR", "Background Chatter", "Reverberant Boundaries"],
+      "description": "Stress-testing recordings where background babble, espresso machines, and keyboard tapping challenge speech activity detection."
+    }
+  ],
+  "annotationProtocol": {
+    "pass1": "Primary trained phonetician segments active speech turns and flags candidate speaker boundaries using continuous time alignment.",
+    "pass2": "Secondary annotator independently labels a random 20% stratified subset blind to Pass 1.",
+    "adjudication": "Senior speech scientist reviews segments where Inter-Annotator disagreement exceeds 150ms collar or speaker identity deviates.",
+    "iaaScore": "3.12% DER between independent human annotators at 0.0s collar (human ceiling baseline)."
+  }
+}

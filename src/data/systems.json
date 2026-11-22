@@ -1,0 +1,343 @@
+[
+  {
+    "id": "pyannote-community",
+    "name": "pyannote/speaker-diarization",
+    "company": "pyannote.audio",
+    "systemType": "Open-Source",
+    "executionMethod": "Self-Hosted GPU",
+    "supportedTracks": ["Batch (Offline)"],
+    "version": "TODO: verify exact version",
+    "license": "MIT / Hugging Face gated access",
+    "pricingModel": "Free self-hosted (Estimated GPU infra: $0.06/hr on A10G)",
+    "costPerHour": 0.06,
+    "description": "Pretrained neural speaker diarization pipeline based on pyannote.audio. Features end-to-end speaker segmentation, overlap-aware embeddings, and agglomerative hierarchical clustering.",
+    "websiteUrl": "https://github.com/pyannote/pyannote-audio",
+    "docsUrl": "https://huggingface.co/pyannote/speaker-diarization-3.1",
+    "repoUrl": "https://github.com/pyannote/pyannote-audio",
+    "supportedLanguages": ["English", "Multilingual", "Hindi", "Indian English"],
+    "maxRecommendedSpeakers": 10,
+    "minSegmentLength": "0.15s",
+    "streamingSupported": false,
+    "strengths": [
+      "Gold-standard open research baseline",
+      "Robust overlapping speech detection",
+      "Full offline execution with strict zero-data-retention compliance"
+    ],
+    "limitations": [
+      "Offline batch only (no native chunk-based streaming pipeline)",
+      "High GPU VRAM requirement for long multi-hour files without VAD chunking"
+    ]
+  },
+  {
+    "id": "nemo-sortformer",
+    "name": "NeMo Sortformer / MSDD",
+    "company": "NVIDIA",
+    "systemType": "Open-Source",
+    "executionMethod": "Self-Hosted GPU",
+    "supportedTracks": ["Batch (Offline)"],
+    "version": "TODO: verify exact version",
+    "license": "Apache-2.0",
+    "pricingModel": "Free self-hosted (Estimated GPU infra: $0.08/hr on A100/L4)",
+    "costPerHour": 0.08,
+    "description": "NVIDIA NeMo diarization stack utilizing Multi-Scale Diarization Decoder (MSDD) and Sortformer multi-speaker transformer architectures. Optimized with TensorRT for high throughput.",
+    "websiteUrl": "https://github.com/NVIDIA/NeMo",
+    "docsUrl": "https://docs.nvidia.com/deeplearning/nemo/user-guide/docs/en/main/asr/speaker_diarization/intro.html",
+    "repoUrl": "https://github.com/NVIDIA/NeMo",
+    "supportedLanguages": ["English", "Multilingual"],
+    "maxRecommendedSpeakers": 8,
+    "minSegmentLength": "0.2s",
+    "streamingSupported": false,
+    "strengths": [
+      "Highly optimized GPU throughput with TensorRT inference engines",
+      "Strong cluster separation in structured meeting corpora"
+    ],
+    "limitations": [
+      "Complex dependency chain and container setup",
+      "Sensitivity to telephone band-pass artifacts without domain adaptation"
+    ]
+  },
+  {
+    "id": "diarizen",
+    "name": "DiariZen",
+    "company": "BUT Speech@FIT",
+    "systemType": "Open-Source",
+    "executionMethod": "Self-Hosted GPU",
+    "supportedTracks": ["Batch (Offline)"],
+    "version": "TODO: verify exact version",
+    "license": "Apache-2.0",
+    "pricingModel": "Free self-hosted (Estimated GPU infra: $0.05/hr on T4/A10G)",
+    "costPerHour": 0.05,
+    "description": "State-of-the-art diarization recipes from Brno University of Technology (BUT), consistent winners of DIHARD and CHiME evaluations. Leverages Bayesian HMM x-vector clustering and neural speech activity detectors.",
+    "websiteUrl": "https://github.com/BUTSpeechFIT/DiariZen",
+    "docsUrl": "https://speech.fit.vutbr.cz/research/speaker-identification-and-diarization",
+    "repoUrl": "https://github.com/BUTSpeechFIT/DiariZen",
+    "supportedLanguages": ["English", "Multilingual"],
+    "maxRecommendedSpeakers": 12,
+    "minSegmentLength": "0.1s",
+    "streamingSupported": false,
+    "strengths": [
+      "DIHARD-grade accuracy on challenging noisy, unconstrained domains",
+      "Very low false alarm rate on quiet transitions and room acoustics"
+    ],
+    "limitations": [
+      "Academic recipe codebase with steeper integration curve than pip packages",
+      "Multi-stage pipeline requiring careful intermediate feature caching"
+    ]
+  },
+  {
+    "id": "pyannote-ai-precision",
+    "name": "pyannoteAI Precision",
+    "company": "pyannoteAI",
+    "systemType": "Commercial API",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial SaaS",
+    "pricingModel": "API Pay-as-you-go ($0.60 / hour audio)",
+    "costPerHour": 0.60,
+    "description": "Production-grade managed SaaS offering by the original authors of pyannote.audio. Enhanced proprietary neural models trained on massive private voice corpora with accelerated inference.",
+    "websiteUrl": "https://pyannote.ai",
+    "docsUrl": "https://docs.pyannote.ai",
+    "repoUrl": "https://github.com/pyannote",
+    "supportedLanguages": ["English", "Multilingual", "Hindi", "Indian English"],
+    "maxRecommendedSpeakers": 15,
+    "minSegmentLength": "0.1s",
+    "streamingSupported": false,
+    "strengths": [
+      "Exceptional accuracy on overlapping speech segments",
+      "Direct RTTM and structured JSON timestamps with speaker turn continuity",
+      "No speech recognition overhead when only diarization labels are needed"
+    ],
+    "limitations": [
+      "Pure diarization service: does not produce text transcripts natively",
+      "Streaming track currently not public on general tier"
+    ]
+  },
+  {
+    "id": "deepgram-nova",
+    "name": "Deepgram Nova",
+    "company": "Deepgram",
+    "systemType": "STT + Diarization",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)", "Streaming (Live)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial SaaS / Self-Hosted Enterprise",
+    "pricingModel": "API Pay-as-you-go ($0.27 / hour Nova-2 batch)",
+    "costPerHour": 0.27,
+    "description": "End-to-end deep learning speech platform providing simultaneous automatic speech recognition and diarization with ultra-fast RTF (<0.05) and low-latency WebSocket live streaming.",
+    "websiteUrl": "https://deepgram.com",
+    "docsUrl": "https://developers.deepgram.com/docs/diarization",
+    "repoUrl": "https://github.com/deepgram",
+    "supportedLanguages": ["English", "Indian English", "Hindi", "Multilingual"],
+    "maxRecommendedSpeakers": 10,
+    "minSegmentLength": "0.2s",
+    "streamingSupported": true,
+    "strengths": [
+      "Industry-leading inference speed and streaming real-time factor",
+      "Cost-effective combined STT + diarization pricing",
+      "Native WebSocket streaming support for live voice agents"
+    ],
+    "limitations": [
+      "Higher speaker confusion when rapid backchannels overlap primary speaker",
+      "Boundary collar precision slightly wider on brief interjections"
+    ]
+  },
+  {
+    "id": "assemblyai-universal",
+    "name": "AssemblyAI Universal",
+    "company": "AssemblyAI",
+    "systemType": "STT + Diarization",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial SaaS",
+    "pricingModel": "API Pay-as-you-go ($0.37 / hour batch)",
+    "costPerHour": 0.37,
+    "description": "Speech-to-text API featuring 'Speaker Diarization v3' with enhanced clustering, punctuation-aligned word boundaries, and automatic speaker count estimation.",
+    "websiteUrl": "https://www.assemblyai.com",
+    "docsUrl": "https://www.assemblyai.com/docs/speech-to-text/speaker-diarization",
+    "repoUrl": "https://github.com/AssemblyAI",
+    "supportedLanguages": ["English", "Spanish", "Multilingual"],
+    "maxRecommendedSpeakers": 10,
+    "minSegmentLength": "0.25s",
+    "streamingSupported": false,
+    "strengths": [
+      "Tightly aligned word-level timestamps and punctuation",
+      "Accurate speaker count on 2-4 speaker podcast and interview settings",
+      "Comprehensive developer SDKs and webhook tooling"
+    ],
+    "limitations": [
+      "Diarization is tightly coupled to STT word emission boundaries",
+      "Streaming diarization has restricted capability compared to batch"
+    ]
+  },
+  {
+    "id": "speechmatics-ursa",
+    "name": "Speechmatics Ursa",
+    "company": "Speechmatics",
+    "systemType": "STT + Diarization",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)", "Streaming (Live)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial SaaS / On-prem appliance",
+    "pricingModel": "API Pay-as-you-go ($0.95 / hour standard)",
+    "costPerHour": 0.95,
+    "description": "Autonomous Speech Recognition engine specialized in global accents, dialect tolerance, and high-accuracy multi-speaker conversational flow in both batch and live WebSocket streaming.",
+    "websiteUrl": "https://www.speechmatics.com",
+    "docsUrl": "https://docs.speechmatics.com/features/diarization",
+    "repoUrl": "https://github.com/speechmatics",
+    "supportedLanguages": ["English", "Indian English", "Hindi", "Hinglish", "50+ Global Languages"],
+    "maxRecommendedSpeakers": 12,
+    "minSegmentLength": "0.15s",
+    "streamingSupported": true,
+    "strengths": [
+      "Remarkable resilience to Indian English, regional accents, and Hinglish code-switching",
+      "Very low speaker confusion in phone-line 8kHz audio",
+      "Enterprise on-prem container deployment availability"
+    ],
+    "limitations": [
+      "Higher price point per audio hour than mass-market providers",
+      "Slightly longer initial warm-up latency on cold streaming handshakes"
+    ]
+  },
+  {
+    "id": "google-stt-v2",
+    "name": "Cloud STT v2",
+    "company": "Google Cloud",
+    "systemType": "STT + Diarization",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)", "Streaming (Live)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial Cloud SaaS",
+    "pricingModel": "Cloud billing ($0.96 / hour standard)",
+    "costPerHour": 0.96,
+    "description": "Google Cloud Speech-to-Text v2 API with Chirp foundation models and speaker diarization config. Supports streaming gRPC and batch Cloud Storage processing.",
+    "websiteUrl": "https://cloud.google.com/speech-to-text",
+    "docsUrl": "https://cloud.google.com/speech-to-text/docs/multiple-voices",
+    "repoUrl": "https://github.com/googleapis/google-cloud-python",
+    "supportedLanguages": ["English", "Hindi", "Indian English", "100+ Global Languages"],
+    "maxRecommendedSpeakers": 8,
+    "minSegmentLength": "0.3s",
+    "streamingSupported": true,
+    "strengths": [
+      "Global language coverage and Chirp foundation model acoustic depth",
+      "Direct integration with GCP IAM, BigQuery, and Pub/Sub pipelines"
+    ],
+    "limitations": [
+      "Speaker diarization requires tuning `minSpeakerCount` and `maxSpeakerCount` hints for optimal clustering",
+      "Higher missed speech on simultaneous overlapping talkers"
+    ]
+  },
+  {
+    "id": "aws-transcribe",
+    "name": "AWS Transcribe",
+    "company": "Amazon Web Services",
+    "systemType": "STT + Diarization",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)", "Streaming (Live)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial Cloud SaaS",
+    "pricingModel": "Cloud billing ($1.44 / hour base tiered)",
+    "costPerHour": 1.44,
+    "description": "Fully managed speech recognition service with Speaker Partitioning, Channel Identification, and PII redaction. Supports both asynchronous S3 batch jobs and HTTP/2 live streaming.",
+    "websiteUrl": "https://aws.amazon.com/transcribe",
+    "docsUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html",
+    "repoUrl": "https://github.com/aws/aws-sdk-js-v3",
+    "supportedLanguages": ["English", "Hindi", "Indian English", "Multilingual"],
+    "maxRecommendedSpeakers": 10,
+    "minSegmentLength": "0.3s",
+    "streamingSupported": true,
+    "strengths": [
+      "High compliance certifications (HIPAA eligible, FedRAMP, SOC2)",
+      "Channel diarization for dual-track call center systems"
+    ],
+    "limitations": [
+      "Historically higher DER on spontaneous conversational overlaps",
+      "Strict collar boundaries occasionally truncate soft word-final sounds"
+    ]
+  },
+  {
+    "id": "azure-ai-speech",
+    "name": "Azure AI Speech",
+    "company": "Microsoft",
+    "systemType": "STT + Diarization",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)", "Streaming (Live)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial Cloud SaaS",
+    "pricingModel": "Cloud billing ($1.00 / hour standard)",
+    "costPerHour": 1.00,
+    "description": "Microsoft Cognitive Services Speech SDK offering conversation transcription, multi-microphone array beamforming diarization, and batch transcription with speaker diarization.",
+    "websiteUrl": "https://azure.microsoft.com/products/ai-services/speech-to-text",
+    "docsUrl": "https://learn.microsoft.com/azure/ai-services/speech-service/speaker-recognition-overview",
+    "repoUrl": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
+    "supportedLanguages": ["English", "Hindi", "Indian English", "Multilingual"],
+    "maxRecommendedSpeakers": 8,
+    "minSegmentLength": "0.25s",
+    "streamingSupported": true,
+    "strengths": [
+      "Excellent multi-channel beamforming integration when circular mic arrays are present",
+      "Native Microsoft Teams and Office ecosystem alignment"
+    ],
+    "limitations": [
+      "Single-channel blind speaker count often over-estimates quiet speakers",
+      "Setup requires Azure tenant and complex SDK initialization"
+    ]
+  },
+  {
+    "id": "elevenlabs-scribe",
+    "name": "ElevenLabs Scribe",
+    "company": "ElevenLabs",
+    "systemType": "STT + Diarization",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial SaaS",
+    "pricingModel": "API Pay-as-you-go ($0.48 / hour)",
+    "costPerHour": 0.48,
+    "description": "Next-generation multi-speaker transcription and diarization API designed for high fidelity, character-level timestamps, and expressive voice segmentation.",
+    "websiteUrl": "https://elevenlabs.io",
+    "docsUrl": "https://elevenlabs.io/docs/api-reference/speech-to-text",
+    "repoUrl": "https://github.com/elevenlabs",
+    "supportedLanguages": ["English", "Multilingual", "Hindi"],
+    "maxRecommendedSpeakers": 6,
+    "minSegmentLength": "0.2s",
+    "streamingSupported": false,
+    "strengths": [
+      "Strong voice feature extraction on clean studio and podcast audio",
+      "Modern ergonomic developer REST API and SDK"
+    ],
+    "limitations": [
+      "Newer product entry: limited historical benchmark calibration on noisy rooms",
+      "Batch mode only currently without live agent WebSockets"
+    ]
+  },
+  {
+    "id": "gladia-solaria",
+    "name": "Gladia Solaria",
+    "company": "Gladia",
+    "systemType": "STT + Diarization",
+    "executionMethod": "Managed API",
+    "supportedTracks": ["Batch (Offline)", "Streaming (Live)"],
+    "version": "TODO: verify exact version",
+    "license": "Commercial SaaS",
+    "pricingModel": "API Pay-as-you-go ($0.38 / hour)",
+    "costPerHour": 0.38,
+    "description": "Fast multi-lingual audio intelligence engine optimized for real-time and async transcription with built-in enhanced diarization, audio intelligence, and translation.",
+    "websiteUrl": "https://www.gladia.io",
+    "docsUrl": "https://docs.gladia.io/reference/speech-to-text",
+    "repoUrl": "https://github.com/gladiaio",
+    "supportedLanguages": ["English", "Hindi", "Indian English", "Hinglish", "Multilingual"],
+    "maxRecommendedSpeakers": 10,
+    "minSegmentLength": "0.18s",
+    "streamingSupported": true,
+    "strengths": [
+      "Fast processing with low real-time factor across multi-lingual conversations",
+      "Flexible audio intelligence add-ons (summarization, chapters, sentiment)"
+    ],
+    "limitations": [
+      "Occasional speaker ID drift over long recordings (>60 min)",
+      "Strict collar boundary can produce false alarms on background office chatter"
+    ]
+  }
+]
