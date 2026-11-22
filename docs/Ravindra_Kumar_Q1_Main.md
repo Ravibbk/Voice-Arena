@@ -2,7 +2,7 @@
 ## Question 1: Research, Methodology & System Design
 **Candidate Author:** Ravindra Kumar  
 **Lab Assessment:** Voice Arena Research Lab  
-**Date:** November 2024  
+**Date:** November 2026  
 **Benchmark Artifact:** [Interactive Leaderboard Prototype](https://voice-arena-diarization.onrender.com) (Local: `http://localhost:3000`)  
 **Deliverable 2 (One-Pager):** [Ravindra_Kumar_Q1_OnePager.md](Ravindra_Kumar_Q1_OnePager.md)  
 **Deliverable 3 (Product Sketch):** [Ravindra_Kumar_Q1_Leaderboard_Sketch.md](Ravindra_Kumar_Q1_Leaderboard_Sketch.md)  
