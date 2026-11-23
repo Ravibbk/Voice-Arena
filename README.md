@@ -8,7 +8,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8.svg)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-6.0-646cff.svg)](https://vitejs.dev/)
 [![Render Static Ready](https://img.shields.io/badge/Render-Static%20Site-46E3B7.svg)](https://render.com)
-
+Live : https://voice-arena.onrender.com
 ---
 
 ## 1. Project Overview & Product Vision
@@ -61,42 +61,7 @@ The static build will be generated in `dist/`.
 
 ---
 
-## 4. Render Static Site Deployment Guide
-
-This repository is pre-configured for **Render Static Sites**.
-
-### Step-by-Step Render Setup
-
-1. **Push to GitHub / GitLab:**
-   Push this repository to your Git provider.
-
-2. **Create New Static Site on Render:**
-   - Log in to your [Render Dashboard](https://dashboard.render.com).
-   - Click **New +** -> **Static Site**.
-   - Connect your repository.
-
-3. **Configure Build & Publish Settings:**
-   * **Name:** `voice-arena-diarization` (or your preferred name)
-   * **Branch:** `main` (or default branch)
-   * **Build Command:** `npm run build`
-   * **Publish Directory:** `dist`
-
-4. **SPA Rewrite Rule (Crucial for React Router DOM):**
-   Render needs to route all incoming HTTP paths to `/index.html` so client-side React Router functions on page refresh.
-   
-   * Go to **Redirects/Rewrites** in your Render service settings:
-     * **Type:** `Rewrite`
-     * **Source:** `/*`
-     * **Destination:** `/index.html`
-   
-   *(Note: This repository also includes `public/_redirects` and `render.yaml` which automatically declares this rewrite rule during Render deployment!)*
-
-5. **Deploy:**
-   Click **Create Static Site**. Render will build and deploy the application in under 60 seconds.
-
----
-
-## 5. Application Pages & Features
+## 4. Application Pages & Features
 
 | Route | Page | Key Features |
 | :--- | :--- | :--- |
@@ -109,7 +74,7 @@ This repository is pre-configured for **Render Static Sites**.
 
 ---
 
-## 6. Data Architecture (`/src/data/`)
+## 5. Data Architecture (`/src/data/`)
 
 * **`src/data/systems.json`:** Contains metadata for 12 systems:
   1. `pyannote/speaker-diarization` (Open-Source, pyannote.audio)
@@ -132,7 +97,7 @@ This repository is pre-configured for **Render Static Sites**.
 
 ---
 
-## 7. Submission Deliverables Included in this Repo
+## 6. Submission Deliverables Included in this Repo
 
 In addition to the running interactive application, the complete take-home assessment package is documented inside `/docs/`:
 
@@ -143,5 +108,5 @@ In addition to the running interactive application, the complete take-home asses
 
 ---
 
-## 8. License & Standards
+## 7. License & Standards
 Developed for **Voice Arena Research Lab**. Evaluation metrics conform to **NIST RT**, **DIHARD III**, and **CHiME-8** standards using `dscore` and `pyannote.metrics`.
