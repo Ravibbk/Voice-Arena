@@ -1,7 +1,6 @@
 # Voice Arena — Speaker Diarization Leaderboard
 ## Executive One-Pager: 2-Minute Reviewer Summary
-**Candidate Author:** Ravindra Kumar  
-**Lab Assessment:** Voice Arena Research Lab  
+**Candidate Author:** Ravindra Kumar    
 **Date:** November 2026  
 
 ---
